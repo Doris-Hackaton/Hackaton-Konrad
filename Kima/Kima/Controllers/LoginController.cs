@@ -46,13 +46,41 @@ namespace Kima.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,email,password,nombre,edad,domicilio,proced_quirurgico,cedula")] Usuario usuario)
+        public ActionResult Login([Bind(Include = "id,email,password,nombre,edad,domicilio,proced_quirurgico,cedula")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Usuarios.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Usuario usuarioConsultado = db.Usuarios.SingleOrDefault(user => user.email == usuario.email);
+
+                int id = usuarioConsultado.id;
+                Session["idLoggead"] = id;
+
+                String correo = usuario.email;
+                String password = usuario.password;
+
+                bool log = false;
+
+               if( correo != usuarioConsultado.email)
+               {
+                    //correo incorrecto, mostrar mensaje
+               }
+               else 
+               {
+                    if( password != usuarioConsultado.password)
+                    {
+                        //contraseña incorrecta, mostrar mensaje
+                    }
+                    else
+                    {
+                        log = true;
+                    }
+               }
+               
+               if(log)
+                {
+                    return Redirect("~");
+                }
+                   
             }
 
             return View(usuario);
