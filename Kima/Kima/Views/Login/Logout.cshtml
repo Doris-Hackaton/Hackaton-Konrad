@@ -1,0 +1,32 @@
+﻿@model Kima.Usuario
+@{
+    ViewBag.Title = "Salir del sistema";
+}
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-offset-3 col-md-6">
+            <div class="well">
+                <legend><h3>Iniciar sesión</h3></legend>
+                <p>Utilice una cuenta local para iniciar sesión.</p>
+                <div class="form-group">
+                    @Html.Label("¿Está seguro/a que desea salir del sistema?", htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salir" class="btn btn-primary btn-lg btn-block" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Kima;
 
 namespace Kima.Controllers
 {
@@ -14,25 +8,14 @@ namespace Kima.Controllers
     {
         private KimaModelContainer db = new KimaModelContainer();
 
-        // GET: Usuarios
-        public ActionResult Index()
-        {
-            return View(db.Usuarios.ToList());
-        }
 
-        // GET: Usuarios/Details/5
-        public ActionResult Details(int? id)
+
+
+
+        // GET: Usuarios/Create
+        public ActionResult Logout()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
+            return View();
         }
 
         // GET: Usuarios/Create
@@ -50,32 +33,29 @@ namespace Kima.Controllers
         {
             if (ModelState.IsValid)
             {
-               Usuario usuarioConsultado = db.Usuarios.SingleOrDefault(user => user.email == usuario.email);
+                Usuario usuarioConsultado = db.Usuarios.SingleOrDefault(user => user.email == usuario.email);
 
-               String correo = usuario.email;
-               String password = usuario.password;
-               String correoConsultado = "";
-               String passwordConsultado = "";
+                String correo = usuario.email;
+                String password = usuario.password;
+                String correoConsultado = "";
+                String passwordConsultado = "";
 
-               if (usuarioConsultado != null)
-               {
+                if (usuarioConsultado != null)
+                {
                     int id = usuarioConsultado.id;
                     Session["idLoggead"] = id;
                     correoConsultado = usuarioConsultado.email;
                     passwordConsultado = usuarioConsultado.password;
-               }
-                
-                
+                }
+                bool log = false;
 
-               bool log = false;
-
-               if( correo != correoConsultado)
-               {
+                if (correo != correoConsultado)
+                {
                     ModelState.AddModelError("errorCorreo", "El correo ingresado es incorrecto.");
-               }
-               else 
-               {
-                    if( password != passwordConsultado)
+                }
+                else
+                {
+                    if (password != passwordConsultado)
                     {
                         ModelState.AddModelError("errorPassword", "La contraseña ingresada es incorrecta.");
                     }
@@ -83,74 +63,18 @@ namespace Kima.Controllers
                     {
                         log = true;
                     }
-               }
-               
-               if(log)
+                }
+
+                if (log)
                 {
                     return Redirect("~");
                 }
-                   
+
             }
 
             return View(usuario);
         }
 
-        // GET: Usuarios/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
-        }
-
-        // POST: Usuarios/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,email,password,nombre,edad,domicilio,proced_quirurgico,cedula")] Usuario usuario)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuarios.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
-        }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Usuario usuario = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuario);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {
