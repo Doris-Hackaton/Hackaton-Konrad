@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="KimaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="KimaModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuarios" EntityType="KimaModel.Usuario" />
+    <EntitySet Name="CentroSaluds" EntityType="KimaModel.CentroSalud" />
+    <EntitySet Name="Enfermedads" EntityType="KimaModel.Enfermedad" />
+    <EntitySet Name="Medicinas" EntityType="KimaModel.Medicinas" />
+    <AssociationSet Name="UsuarioEnfermedad" Association="KimaModel.UsuarioEnfermedad">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Enfermedad" EntitySet="Enfermedads" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioMedicinas" Association="KimaModel.UsuarioMedicinas">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Medicinas" EntitySet="Medicinas" />
+    </AssociationSet>
+    <AssociationSet Name="EnfermedadMedicinas" Association="KimaModel.EnfermedadMedicinas">
+      <End Role="Enfermedad" EntitySet="Enfermedads" />
+      <End Role="Medicinas" EntitySet="Medicinas" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioEvento" Association="KimaModel.UsuarioEvento">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <AssociationSet Name="CentroSaludEvento" Association="KimaModel.CentroSaludEvento">
+      <End Role="CentroSalud" EntitySet="CentroSaluds" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <EntitySet Name="Eventoes" EntityType="KimaModel.Evento" />
+    <AssociationSet Name="EnfermedadEvento" Association="KimaModel.EnfermedadEvento">
+      <End Role="Enfermedad" EntitySet="Enfermedads" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <AssociationSet Name="MedicinasEvento" Association="KimaModel.MedicinasEvento">
+      <End Role="Medicinas" EntitySet="Medicinas" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" Nullable="false" />
+    <Property Name="password" Type="String" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" />
+    <Property Name="edad" Type="String" Nullable="false" />
+    <Property Name="domicilio" Type="String" Nullable="false" />
+    <Property Name="proced_quirurgico" Type="String" Nullable="false" />
+    <Property Name="cedula" Type="String" Nullable="false" />
+    <NavigationProperty Name="Enfermedads" Relationship="KimaModel.UsuarioEnfermedad" FromRole="Usuario" ToRole="Enfermedad" />
+    <NavigationProperty Name="Medicinas" Relationship="KimaModel.UsuarioMedicinas" FromRole="Usuario" ToRole="Medicinas" />
+    <NavigationProperty Name="Eventoes" Relationship="KimaModel.UsuarioEvento" FromRole="Usuario" ToRole="Evento" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="color" Type="String" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="KimaModel.UsuarioEvento" FromRole="Evento" ToRole="Usuario" />
+    <NavigationProperty Name="CentroSalud" Relationship="KimaModel.CentroSaludEvento" FromRole="Evento" ToRole="CentroSalud" />
+    <Property Name="doctor" Type="String" Nullable="false" />
+    <Property Name="anotaciones" Type="String" Nullable="false" />
+    <Property Name="fecha" Type="String" Nullable="false" />
+    <NavigationProperty Name="Enfermedad" Relationship="KimaModel.EnfermedadEvento" FromRole="Evento" ToRole="Enfermedad" />
+    <NavigationProperty Name="Medicina" Relationship="KimaModel.MedicinasEvento" FromRole="Evento" ToRole="Medicinas" />
+  </EntityType>
+  <EntityType Name="CentroSalud">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" />
+    <Property Name="seccion" Type="String" Nullable="false" />
+    <NavigationProperty Name="Eventoes" Relationship="KimaModel.CentroSaludEvento" FromRole="CentroSalud" ToRole="Evento" />
+  </EntityType>
+  <EntityType Name="Enfermedad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" />
+    <Property Name="fecha_diagnostico" Type="String" Nullable="false" />
+    <Property Name="ultimo_evento" Type="String" Nullable="false" />
+    <Property Name="tipo" Type="String" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="KimaModel.UsuarioEnfermedad" FromRole="Enfermedad" ToRole="Usuario" />
+    <NavigationProperty Name="Medicinas" Relationship="KimaModel.EnfermedadMedicinas" FromRole="Enfermedad" ToRole="Medicinas" />
+    <NavigationProperty Name="Eventoes" Relationship="KimaModel.EnfermedadEvento" FromRole="Enfermedad" ToRole="Evento" />
+  </EntityType>
+  <EntityType Name="Medicinas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" />
+    <Property Name="detalles" Type="String" Nullable="false" />
+    <Property Name="dosis" Type="String" Nullable="false" />
+    <Property Name="frecuencia" Type="String" Nullable="false" />
+    <Property Name="tipo" Type="String" Nullable="false" />
+    <Property Name="info_compra" Type="String" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="KimaModel.UsuarioMedicinas" FromRole="Medicinas" ToRole="Usuario" />
+    <NavigationProperty Name="Enfermedads" Relationship="KimaModel.EnfermedadMedicinas" FromRole="Medicinas" ToRole="Enfermedad" />
+    <NavigationProperty Name="Eventoes" Relationship="KimaModel.MedicinasEvento" FromRole="Medicinas" ToRole="Evento" />
+  </EntityType>
+  <Association Name="UsuarioEnfermedad">
+    <End Type="KimaModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="KimaModel.Enfermedad" Role="Enfermedad" Multiplicity="*" />
+  </Association>
+  <Association Name="UsuarioMedicinas">
+    <End Type="KimaModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="KimaModel.Medicinas" Role="Medicinas" Multiplicity="*" />
+  </Association>
+  <Association Name="EnfermedadMedicinas">
+    <End Type="KimaModel.Enfermedad" Role="Enfermedad" Multiplicity="*" />
+    <End Type="KimaModel.Medicinas" Role="Medicinas" Multiplicity="*" />
+  </Association>
+  <Association Name="UsuarioEvento">
+    <End Type="KimaModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="KimaModel.Evento" Role="Evento" Multiplicity="*" />
+  </Association>
+  <Association Name="CentroSaludEvento">
+    <End Type="KimaModel.CentroSalud" Role="CentroSalud" Multiplicity="1" />
+    <End Type="KimaModel.Evento" Role="Evento" Multiplicity="*" />
+  </Association>
+  <Association Name="EnfermedadEvento">
+    <End Type="KimaModel.Enfermedad" Role="Enfermedad" Multiplicity="1" />
+    <End Type="KimaModel.Evento" Role="Evento" Multiplicity="*" />
+  </Association>
+  <Association Name="MedicinasEvento">
+    <End Type="KimaModel.Medicinas" Role="Medicinas" Multiplicity="1" />
+    <End Type="KimaModel.Evento" Role="Evento" Multiplicity="*" />
+  </Association>
+</Schema>
