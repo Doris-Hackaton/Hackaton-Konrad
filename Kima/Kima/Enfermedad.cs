@@ -28,9 +28,9 @@ namespace Kima
         public string nombre { get; set; }
         [Display(Name = "Fecha de diágnostico")]
         public Nullable<System.DateTime> fecha_diagnostico { get; set; }
-        [Display(Name = "Fecha del último evento de la enfermedad")]
+        [Display(Name = "Último evento de la enfermedad")]
         public Nullable<System.DateTime> ultimo_evento { get; set; }
-        [Display(Name = "Tipo de la enfermedad (Crónico o no crónico)")]
+        [Display(Name = "Tipo de la enfermedad")]
         public string tipo { get; set; }
 
         public virtual Usuario Usuario { get; set; }

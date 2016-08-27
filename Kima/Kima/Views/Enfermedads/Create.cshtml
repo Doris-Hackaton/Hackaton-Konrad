@@ -5,7 +5,7 @@
     ViewBag.Title = "Crear Enfermedad";
 }
 
-<h2>Create</h2>
+<h2>Agregar</h2>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -46,7 +46,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Enfermedad</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -84,15 +83,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Agregar Enfermedad" class="btn btn-default" /> | @Html.ActionLink("Cancelar", "Index")
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

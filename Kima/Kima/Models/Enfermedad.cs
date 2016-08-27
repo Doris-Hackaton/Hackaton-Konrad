@@ -14,9 +14,9 @@ namespace Kima.Models
         [Display(Name = "Fecha de diágnostico")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> fecha_diagnostico { get; set; }
-        [Display(Name = "Fecha del último evento de la enfermedad")]
+        [Display(Name = "Último evento de la enfermedad")]
         public Nullable<System.DateTime> ultimo_evento { get; set; }
-        [Display(Name = "Tipo de la enfermedad (Crónico o no crónico)")]
+        [Display(Name = "Tipo de la enfermedad")]
         public string tipo { get; set; }
 
     }
