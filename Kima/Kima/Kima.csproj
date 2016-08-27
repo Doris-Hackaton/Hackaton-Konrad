@@ -201,6 +201,8 @@
     <Compile Include="Medicinas.cs">
       <DependentUpon>KimaModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EnfermedadsController.cs" />
+    <Compile Include="Models\Enfermedad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs">
       <DependentUpon>KimaModel1.tt</DependentUpon>
@@ -264,10 +266,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Enfermedads\Create.cshtml" />
+    <Content Include="Views\Enfermedads\Delete.cshtml" />
+    <Content Include="Views\Enfermedads\Details.cshtml" />
+    <Content Include="Views\Enfermedads\Edit.cshtml" />
+    <Content Include="Views\Enfermedads\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

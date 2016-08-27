@@ -48,9 +48,9 @@
     <Property Name="email" Type="longtext" Nullable="false" />
     <Property Name="password" Type="longtext" Nullable="false" />
     <Property Name="nombre" Type="longtext" Nullable="false" />
-    <Property Name="edad" Type="longtext" Nullable="false" />
+    <Property Name="edad" Type="int" Nullable="false" />
     <Property Name="domicilio" Type="longtext" Nullable="false" />
-    <Property Name="proced_quirurgico" Type="longtext" Nullable="false" />
+    <Property Name="proced_quirurgico" Type="longtext" Nullable="true" />
     <Property Name="cedula" Type="longtext" Nullable="false" />
   </EntityType>
   <EntityType Name="CentroSaluds">
@@ -59,7 +59,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="longtext" Nullable="false" />
-    <Property Name="seccion" Type="longtext" Nullable="false" />
+    <Property Name="seccion" Type="longtext" Nullable="true" />
   </EntityType>
   <EntityType Name="Enfermedads">
     <Key>
@@ -67,8 +67,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="longtext" Nullable="false" />
-    <Property Name="fecha_diagnostico" Type="longtext" Nullable="false" />
-    <Property Name="ultimo_evento" Type="longtext" Nullable="false" />
+    <Property Name="fecha_diagnostico" Type="datetime" Nullable="true" />
+    <Property Name="ultimo_evento" Type="datetime" Nullable="true" />
     <Property Name="tipo" Type="longtext" Nullable="false" />
     <Property Name="Usuario_id" Type="int" Nullable="false" />
   </EntityType>
@@ -78,11 +78,11 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="longtext" Nullable="false" />
-    <Property Name="detalles" Type="longtext" Nullable="false" />
+    <Property Name="detalles" Type="longtext" Nullable="true" />
     <Property Name="dosis" Type="longtext" Nullable="false" />
     <Property Name="frecuencia" Type="longtext" Nullable="false" />
     <Property Name="tipo" Type="longtext" Nullable="false" />
-    <Property Name="info_compra" Type="longtext" Nullable="false" />
+    <Property Name="info_compra" Type="longtext" Nullable="true" />
     <Property Name="Usuario_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Eventoes">
@@ -90,10 +90,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="color" Type="longtext" Nullable="false" />
-    <Property Name="doctor" Type="longtext" Nullable="false" />
-    <Property Name="anotaciones" Type="longtext" Nullable="false" />
-    <Property Name="fecha" Type="longtext" Nullable="false" />
+    <Property Name="color" Type="longtext" Nullable="true" />
+    <Property Name="doctor" Type="longtext" Nullable="true" />
+    <Property Name="anotaciones" Type="longtext" Nullable="true" />
+    <Property Name="fecha" Type="datetime" Nullable="true" />
     <Property Name="Usuario_id" Type="int" Nullable="false" />
     <Property Name="CentroSalud_Id" Type="int" Nullable="false" />
     <Property Name="Enfermedad_Id" Type="int" Nullable="false" />
