@@ -71,7 +71,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li id="A1">@Html.ActionLink("Perfil", "Create", "Usuarios")</li>
+                        <li id="A1">@Html.ActionLink("Perfil", "Details", "Usuarios", new { id = 1 }, null)</li>
                         <li id="A2">@Html.ActionLink("Enfermedades", "Create", "Enfermedads")</li>
                         <li id="A3">@Html.ActionLink("Medicamentos", "Create", "Medicinas")</li>
                         <li id="A4">@Html.ActionLink("Eventos", "Create", "Eventoes")</li>
@@ -82,9 +82,71 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <!-- Start Footer Section -->
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <div class="container">
+                <div class="row footer-widgets">
+
+                    <!-- Start Subscribe & Social Links Widget -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="footer-widget social-widget">
+                            <h4>Síguenos<span class="head-line"></span></h4>
+                            <ul class="social-icons">
+                                <li>
+                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                                <li>
+                                    <a class="instgram" href="#"><i class="fa fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a class="skype" href="#"><i class="fa fa-skype"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- .col-md-3 -->
+                    <!-- End Subscribe & Social Links Widget -->
+                    <!-- Start Contact Widget -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="footer-widget contact-widget">
+                            <h4>Kíma<span class="head-line"></span></h4>
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                            <p>Teléfono: +01 234 567 890 <br>Email: info@Kima.com <br> Website: www.Kima.com</p>    
+                        </div>
+                    </div>
+                    <!-- .col-md-3 -->
+                    <!-- End Contact Widget -->
+
+                </div>
+                <!-- .row -->
+                <!-- Start Copyright -->
+                <div class="copyright-section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; @DateTime.Now.Year - Kíma - Todos los Derechos Resevados.</p>
+                        </div>
+                        <!-- .col-md-6 -->
+                        <div class="col-md-6">
+                            <ul class="footer-nav">
+                                <li>
+                                    <a href="#"> Diseño de tema: Margo, GrayGrids</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- .col-md-6 -->
+                    </div>
+                    <!-- .row -->
+                </div>
+                <!-- End Copyright -->
+            </div>
         </footer>
+        <!-- End Footer Section -->    
     </div>
 
     
