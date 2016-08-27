@@ -90,24 +90,9 @@ namespace Kima.Controllers
             return View(medicinas);
         }
 
-        // GET: Medicinas/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Medicinas medicinas = db.Medicinas.Find(id);
-            if (medicinas == null)
-            {
-                return HttpNotFound();
-            }
-            return View(medicinas);
-        }
 
         // POST: Medicinas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
         public ActionResult DeleteConfirmed(string nombre)
         {
             Medicinas medicinas = db.Medicinas.SingleOrDefault(medicina => medicina.nombre == nombre);
