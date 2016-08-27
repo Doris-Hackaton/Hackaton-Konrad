@@ -4,63 +4,64 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<legend style="margin-top:45px"><h2>Detalles Medicamento</h2></legend>
 
 <div>
-    <h4>Medicinas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.detalles)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.detalles)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.detalles)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.detalles)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dosis)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.dosis)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.dosis)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.dosis)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.frecuencia)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.frecuencia)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.frecuencia)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.frecuencia)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.tipo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.info_compra)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.info_compra)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.info_compra)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.info_compra)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+<div id="Botones_aceptar_cancelar" class="col-md-offset-8 col-md-3">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-lg btn-block" })
+</div>
