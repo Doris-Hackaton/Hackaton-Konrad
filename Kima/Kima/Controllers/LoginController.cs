@@ -50,23 +50,32 @@ namespace Kima.Controllers
         {
             if (ModelState.IsValid)
             {
-                Usuario usuarioConsultado = db.Usuarios.SingleOrDefault(user => user.email == usuario.email);
+               Usuario usuarioConsultado = db.Usuarios.SingleOrDefault(user => user.email == usuario.email);
 
-                int id = usuarioConsultado.id;
-                Session["idLoggead"] = id;
+               String correo = usuario.email;
+               String password = usuario.password;
+               String correoConsultado = "";
+               String passwordConsultado = "";
 
-                String correo = usuario.email;
-                String password = usuario.password;
+               if (usuarioConsultado != null)
+               {
+                    int id = usuarioConsultado.id;
+                    Session["idLoggead"] = id;
+                    correoConsultado = usuarioConsultado.email;
+                    passwordConsultado = usuarioConsultado.password;
+               }
+                
+                
 
-                bool log = false;
+               bool log = false;
 
-               if( correo != usuarioConsultado.email)
+               if( correo != correoConsultado)
                {
                     ModelState.AddModelError("errorCorreo", "El correo ingresado es incorrecto.");
-                }
+               }
                else 
                {
-                    if( password != usuarioConsultado.password)
+                    if( password != passwordConsultado)
                     {
                         ModelState.AddModelError("errorPassword", "La contraseña ingresada es incorrecta.");
                     }
