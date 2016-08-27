@@ -59,26 +59,26 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
 
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Kima", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Kima", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li id="A1">@Html.ActionLink("Perfil", "Create", "Usuarios")</li>
+                        <li id="A2">@Html.ActionLink("Enfermedades", "Create", "Enfermedads")</li>
+                        <li id="A3">@Html.ActionLink("Medicamentos", "Create", "Medicinas")</li>
+                        <li id="A4">@Html.ActionLink("Eventos", "Create", "Eventoes")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li id="A1">@Html.ActionLink("Perfil", "Create", "Usuarios")</li>
-                    <li id="A2">@Html.ActionLink("Enfermedades", "Create", "Enfermedads")</li>
-                    <li id="A3">@Html.ActionLink("Medicamentos", "Create", "Medicinas")</li>
-                    <li id="A4">@Html.ActionLink("Eventos", "Create", "Eventoes")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+</div>
     <div class="container body-content">
         @RenderBody()
         <hr />
