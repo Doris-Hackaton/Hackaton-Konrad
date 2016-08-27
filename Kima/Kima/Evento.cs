@@ -18,7 +18,7 @@ namespace Kima
         public string color { get; set; }
         public string doctor { get; set; }
         public string anotaciones { get; set; }
-        public string fecha { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
     
         public virtual Usuario Usuario { get; set; }
         public virtual CentroSalud CentroSalud { get; set; }

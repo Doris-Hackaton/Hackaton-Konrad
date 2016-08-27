@@ -26,7 +26,7 @@ namespace Kima
         public string email { get; set; }
         public string password { get; set; }
         public string nombre { get; set; }
-        public string edad { get; set; }
+        public int edad { get; set; }
         public string domicilio { get; set; }
         public string proced_quirurgico { get; set; }
         public string cedula { get; set; }

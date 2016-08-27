@@ -1,4 +1,206 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="KimaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-  <EntityContainer Name="KimaModelTargetContainer" />
+<Schema Namespace="KimaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KimaModelStoreContainer">
+    <EntitySet Name="Usuarios" EntityType="KimaModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CentroSaluds" EntityType="KimaModel.Store.CentroSaluds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enfermedads" EntityType="KimaModel.Store.Enfermedads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Medicinas" EntityType="KimaModel.Store.Medicinas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Eventoes" EntityType="KimaModel.Store.Eventoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EnfermedadMedicinas" EntityType="KimaModel.Store.EnfermedadMedicinas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UsuarioEnfermedad" Association="KimaModel.Store.UsuarioEnfermedad">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Enfermedad" EntitySet="Enfermedads" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioMedicinas" Association="KimaModel.Store.UsuarioMedicinas">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Medicinas" EntitySet="Medicinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnfermedadMedicinas_Enfermedad" Association="KimaModel.Store.FK_EnfermedadMedicinas_Enfermedad">
+      <End Role="Enfermedad" EntitySet="Enfermedads" />
+      <End Role="EnfermedadMedicinas" EntitySet="EnfermedadMedicinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnfermedadMedicinas_Medicinas" Association="KimaModel.Store.FK_EnfermedadMedicinas_Medicinas">
+      <End Role="Medicinas" EntitySet="Medicinas" />
+      <End Role="EnfermedadMedicinas" EntitySet="EnfermedadMedicinas" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioEvento" Association="KimaModel.Store.UsuarioEvento">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <AssociationSet Name="CentroSaludEvento" Association="KimaModel.Store.CentroSaludEvento">
+      <End Role="CentroSalud" EntitySet="CentroSaluds" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <AssociationSet Name="EnfermedadEvento" Association="KimaModel.Store.EnfermedadEvento">
+      <End Role="Enfermedad" EntitySet="Enfermedads" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <AssociationSet Name="MedicinasEvento" Association="KimaModel.Store.MedicinasEvento">
+      <End Role="Medicinas" EntitySet="Medicinas" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="longtext" Nullable="false" />
+    <Property Name="password" Type="longtext" Nullable="false" />
+    <Property Name="nombre" Type="longtext" Nullable="false" />
+    <Property Name="edad" Type="longtext" Nullable="false" />
+    <Property Name="domicilio" Type="longtext" Nullable="false" />
+    <Property Name="proced_quirurgico" Type="longtext" Nullable="false" />
+    <Property Name="cedula" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CentroSaluds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="longtext" Nullable="false" />
+    <Property Name="seccion" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enfermedads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="longtext" Nullable="false" />
+    <Property Name="fecha_diagnostico" Type="longtext" Nullable="false" />
+    <Property Name="ultimo_evento" Type="longtext" Nullable="false" />
+    <Property Name="tipo" Type="longtext" Nullable="false" />
+    <Property Name="Usuario_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medicinas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="longtext" Nullable="false" />
+    <Property Name="detalles" Type="longtext" Nullable="false" />
+    <Property Name="dosis" Type="longtext" Nullable="false" />
+    <Property Name="frecuencia" Type="longtext" Nullable="false" />
+    <Property Name="tipo" Type="longtext" Nullable="false" />
+    <Property Name="info_compra" Type="longtext" Nullable="false" />
+    <Property Name="Usuario_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Eventoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="color" Type="longtext" Nullable="false" />
+    <Property Name="doctor" Type="longtext" Nullable="false" />
+    <Property Name="anotaciones" Type="longtext" Nullable="false" />
+    <Property Name="fecha" Type="longtext" Nullable="false" />
+    <Property Name="Usuario_id" Type="int" Nullable="false" />
+    <Property Name="CentroSalud_Id" Type="int" Nullable="false" />
+    <Property Name="Enfermedad_Id" Type="int" Nullable="false" />
+    <Property Name="Medicina_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnfermedadMedicinas">
+    <Key>
+      <PropertyRef Name="Enfermedads_Id" />
+      <PropertyRef Name="Medicinas_Id" />
+    </Key>
+    <Property Name="Enfermedads_Id" Type="int" Nullable="false" />
+    <Property Name="Medicinas_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UsuarioEnfermedad">
+    <End Role="Usuario" Type="KimaModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Enfermedad" Type="KimaModel.Store.Enfermedads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Enfermedad">
+        <PropertyRef Name="Usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioMedicinas">
+    <End Role="Usuario" Type="KimaModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Medicinas" Type="KimaModel.Store.Medicinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Medicinas">
+        <PropertyRef Name="Usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsuarioEvento">
+    <End Role="Usuario" Type="KimaModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Evento" Type="KimaModel.Store.Eventoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="Usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CentroSaludEvento">
+    <End Role="CentroSalud" Type="KimaModel.Store.CentroSaluds" Multiplicity="1" />
+    <End Role="Evento" Type="KimaModel.Store.Eventoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CentroSalud">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="CentroSalud_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnfermedadEvento">
+    <End Role="Enfermedad" Type="KimaModel.Store.Enfermedads" Multiplicity="1" />
+    <End Role="Evento" Type="KimaModel.Store.Eventoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enfermedad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="Enfermedad_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MedicinasEvento">
+    <End Role="Medicinas" Type="KimaModel.Store.Medicinas" Multiplicity="1" />
+    <End Role="Evento" Type="KimaModel.Store.Eventoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicinas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="Medicina_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnfermedadMedicinas_Enfermedad">
+    <End Role="Enfermedad" Type="KimaModel.Store.Enfermedads" Multiplicity="1" />
+    <End Role="EnfermedadMedicinas" Type="KimaModel.Store.EnfermedadMedicinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enfermedad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnfermedadMedicinas">
+        <PropertyRef Name="Enfermedads_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnfermedadMedicinas_Medicinas">
+    <End Role="EnfermedadMedicinas" Type="KimaModel.Store.EnfermedadMedicinas" Multiplicity="*" />
+    <End Role="Medicinas" Type="KimaModel.Store.Medicinas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Medicinas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnfermedadMedicinas">
+        <PropertyRef Name="Medicinas_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

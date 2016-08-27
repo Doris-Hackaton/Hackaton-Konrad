@@ -23,8 +23,8 @@ namespace Kima
     
         public int Id { get; set; }
         public string nombre { get; set; }
-        public string fecha_diagnostico { get; set; }
-        public string ultimo_evento { get; set; }
+        public Nullable<System.DateTime> fecha_diagnostico { get; set; }
+        public Nullable<System.DateTime> ultimo_evento { get; set; }
         public string tipo { get; set; }
     
         public virtual Usuario Usuario { get; set; }

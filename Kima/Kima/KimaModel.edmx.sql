@@ -1,17 +1,13 @@
 -- -----------------------------------------------------------
 -- Entity Designer DDL Script for MySQL Server 4.1 and higher
 -- -----------------------------------------------------------
--- Date Created: 08/27/2016 09:36:56
+-- Date Created: 08/27/2016 10:22:27
 
 -- Generated from EDMX file: C:\Users\Daniel\Desktop\Hackaton-Konrad\Kima\Kima\KimaModel.edmx
 -- Target version: 3.0.0.0
 
 -- --------------------------------------------------
 
-
-DROP DATABASE IF EXISTS `doroteos`;
-CREATE DATABASE `doroteos`;
-USE `doroteos`;
 
 
 -- --------------------------------------------------
@@ -20,11 +16,39 @@ USE `doroteos`;
 -- --------------------------------------------------
 
 
+--    ALTER TABLE `Enfermedads` DROP CONSTRAINT `FK_UsuarioEnfermedad`;
+
+--    ALTER TABLE `Medicinas` DROP CONSTRAINT `FK_UsuarioMedicinas`;
+
+--    ALTER TABLE `EnfermedadMedicinas` DROP CONSTRAINT `FK_EnfermedadMedicinas_Enfermedad`;
+
+--    ALTER TABLE `EnfermedadMedicinas` DROP CONSTRAINT `FK_EnfermedadMedicinas_Medicinas`;
+
+--    ALTER TABLE `Eventoes` DROP CONSTRAINT `FK_UsuarioEvento`;
+
+--    ALTER TABLE `Eventoes` DROP CONSTRAINT `FK_CentroSaludEvento`;
+
+--    ALTER TABLE `Eventoes` DROP CONSTRAINT `FK_EnfermedadEvento`;
+
+--    ALTER TABLE `Eventoes` DROP CONSTRAINT `FK_MedicinasEvento`;
+
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 SET foreign_key_checks = 0;
+
+    DROP TABLE IF EXISTS `Usuarios`;
+
+    DROP TABLE IF EXISTS `CentroSaluds`;
+
+    DROP TABLE IF EXISTS `Enfermedads`;
+
+    DROP TABLE IF EXISTS `Medicinas`;
+
+    DROP TABLE IF EXISTS `Eventoes`;
+
+    DROP TABLE IF EXISTS `EnfermedadMedicinas`;
 
 SET foreign_key_checks = 1;
 
@@ -38,9 +62,9 @@ CREATE TABLE `Usuarios`(
 	`email` longtext NOT NULL, 
 	`password` longtext NOT NULL, 
 	`nombre` longtext NOT NULL, 
-	`edad` longtext NOT NULL, 
+	`edad` int NOT NULL, 
 	`domicilio` longtext NOT NULL, 
-	`proced_quirurgico` longtext NOT NULL, 
+	`proced_quirurgico` longtext, 
 	`cedula` longtext NOT NULL);
 
 ALTER TABLE `Usuarios` ADD PRIMARY KEY (`id`);
@@ -52,7 +76,7 @@ ALTER TABLE `Usuarios` ADD PRIMARY KEY (`id`);
 CREATE TABLE `CentroSaluds`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`nombre` longtext NOT NULL, 
-	`seccion` longtext NOT NULL);
+	`seccion` longtext);
 
 ALTER TABLE `CentroSaluds` ADD PRIMARY KEY (`Id`);
 
@@ -63,8 +87,8 @@ ALTER TABLE `CentroSaluds` ADD PRIMARY KEY (`Id`);
 CREATE TABLE `Enfermedads`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`nombre` longtext NOT NULL, 
-	`fecha_diagnostico` longtext NOT NULL, 
-	`ultimo_evento` longtext NOT NULL, 
+	`fecha_diagnostico` datetime, 
+	`ultimo_evento` datetime, 
 	`tipo` longtext NOT NULL, 
 	`Usuario_id` int NOT NULL);
 
@@ -77,11 +101,11 @@ ALTER TABLE `Enfermedads` ADD PRIMARY KEY (`Id`);
 CREATE TABLE `Medicinas`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
 	`nombre` longtext NOT NULL, 
-	`detalles` longtext NOT NULL, 
+	`detalles` longtext, 
 	`dosis` longtext NOT NULL, 
 	`frecuencia` longtext NOT NULL, 
 	`tipo` longtext NOT NULL, 
-	`info_compra` longtext NOT NULL, 
+	`info_compra` longtext, 
 	`Usuario_id` int NOT NULL);
 
 ALTER TABLE `Medicinas` ADD PRIMARY KEY (`Id`);
@@ -92,10 +116,10 @@ ALTER TABLE `Medicinas` ADD PRIMARY KEY (`Id`);
 
 CREATE TABLE `Eventoes`(
 	`Id` int NOT NULL AUTO_INCREMENT UNIQUE, 
-	`color` longtext NOT NULL, 
-	`doctor` longtext NOT NULL, 
-	`anotaciones` longtext NOT NULL, 
-	`fecha` longtext NOT NULL, 
+	`color` longtext, 
+	`doctor` longtext, 
+	`anotaciones` longtext, 
+	`fecha` datetime, 
 	`Usuario_id` int NOT NULL, 
 	`CentroSalud_Id` int NOT NULL, 
 	`Enfermedad_Id` int NOT NULL, 

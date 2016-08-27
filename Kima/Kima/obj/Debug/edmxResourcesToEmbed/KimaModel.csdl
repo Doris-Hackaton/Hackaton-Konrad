@@ -43,9 +43,9 @@
     <Property Name="email" Type="String" Nullable="false" />
     <Property Name="password" Type="String" Nullable="false" />
     <Property Name="nombre" Type="String" Nullable="false" />
-    <Property Name="edad" Type="String" Nullable="false" />
+    <Property Name="edad" Type="Int32" Nullable="false" />
     <Property Name="domicilio" Type="String" Nullable="false" />
-    <Property Name="proced_quirurgico" Type="String" Nullable="false" />
+    <Property Name="proced_quirurgico" Type="String" Nullable="true" />
     <Property Name="cedula" Type="String" Nullable="false" />
     <NavigationProperty Name="Enfermedads" Relationship="KimaModel.UsuarioEnfermedad" FromRole="Usuario" ToRole="Enfermedad" />
     <NavigationProperty Name="Medicinas" Relationship="KimaModel.UsuarioMedicinas" FromRole="Usuario" ToRole="Medicinas" />
@@ -56,12 +56,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="color" Type="String" Nullable="false" />
+    <Property Name="color" Type="String" Nullable="true" />
     <NavigationProperty Name="Usuario" Relationship="KimaModel.UsuarioEvento" FromRole="Evento" ToRole="Usuario" />
     <NavigationProperty Name="CentroSalud" Relationship="KimaModel.CentroSaludEvento" FromRole="Evento" ToRole="CentroSalud" />
-    <Property Name="doctor" Type="String" Nullable="false" />
-    <Property Name="anotaciones" Type="String" Nullable="false" />
-    <Property Name="fecha" Type="String" Nullable="false" />
+    <Property Name="doctor" Type="String" Nullable="true" />
+    <Property Name="anotaciones" Type="String" Nullable="true" />
+    <Property Name="fecha" Type="DateTime" Nullable="true" />
     <NavigationProperty Name="Enfermedad" Relationship="KimaModel.EnfermedadEvento" FromRole="Evento" ToRole="Enfermedad" />
     <NavigationProperty Name="Medicina" Relationship="KimaModel.MedicinasEvento" FromRole="Evento" ToRole="Medicinas" />
   </EntityType>
@@ -71,7 +71,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" Nullable="false" />
-    <Property Name="seccion" Type="String" Nullable="false" />
+    <Property Name="seccion" Type="String" Nullable="true" />
     <NavigationProperty Name="Eventoes" Relationship="KimaModel.CentroSaludEvento" FromRole="CentroSalud" ToRole="Evento" />
   </EntityType>
   <EntityType Name="Enfermedad">
@@ -80,8 +80,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" Nullable="false" />
-    <Property Name="fecha_diagnostico" Type="String" Nullable="false" />
-    <Property Name="ultimo_evento" Type="String" Nullable="false" />
+    <Property Name="fecha_diagnostico" Type="DateTime" Nullable="true" />
+    <Property Name="ultimo_evento" Type="DateTime" Nullable="true" />
     <Property Name="tipo" Type="String" Nullable="false" />
     <NavigationProperty Name="Usuario" Relationship="KimaModel.UsuarioEnfermedad" FromRole="Enfermedad" ToRole="Usuario" />
     <NavigationProperty Name="Medicinas" Relationship="KimaModel.EnfermedadMedicinas" FromRole="Enfermedad" ToRole="Medicinas" />
@@ -93,11 +93,11 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" Nullable="false" />
-    <Property Name="detalles" Type="String" Nullable="false" />
+    <Property Name="detalles" Type="String" Nullable="true" />
     <Property Name="dosis" Type="String" Nullable="false" />
     <Property Name="frecuencia" Type="String" Nullable="false" />
     <Property Name="tipo" Type="String" Nullable="false" />
-    <Property Name="info_compra" Type="String" Nullable="false" />
+    <Property Name="info_compra" Type="String" Nullable="true" />
     <NavigationProperty Name="Usuario" Relationship="KimaModel.UsuarioMedicinas" FromRole="Medicinas" ToRole="Usuario" />
     <NavigationProperty Name="Enfermedads" Relationship="KimaModel.EnfermedadMedicinas" FromRole="Medicinas" ToRole="Enfermedad" />
     <NavigationProperty Name="Eventoes" Relationship="KimaModel.MedicinasEvento" FromRole="Medicinas" ToRole="Evento" />
