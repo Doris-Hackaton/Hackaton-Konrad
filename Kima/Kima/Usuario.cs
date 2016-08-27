@@ -26,6 +26,7 @@ namespace Kima
         public int id { get; set; }
         [Display(Name = "Correo")]
         public string email { get; set; }
+        [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string password { get; set; }
         [Display(Name = "Nombre")]

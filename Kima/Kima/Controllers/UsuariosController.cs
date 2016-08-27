@@ -52,7 +52,7 @@ namespace Kima.Controllers
             {
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
-                return Redirect("~");
+                return Redirect("~/Usuarios/Login");
             }
 
             return View(usuario);
@@ -84,7 +84,7 @@ namespace Kima.Controllers
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction(Url.Content("~/Home/Index"));
+                return RedirectToAction(Url.Content("~"));
             }
             return View(usuario);
         }
