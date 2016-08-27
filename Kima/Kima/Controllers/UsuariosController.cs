@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Kima;
 
 namespace Kima.Controllers
 {
@@ -14,11 +8,6 @@ namespace Kima.Controllers
     {
         private KimaModelContainer db = new KimaModelContainer();
 
-        // GET: Usuarios
-        public ActionResult Index()
-        {
-            return View(db.Usuarios.ToList());
-        }
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
@@ -112,7 +101,7 @@ namespace Kima.Controllers
             Usuario usuario = db.Usuarios.Find(id);
             db.Usuarios.Remove(usuario);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
 
         protected override void Dispose(bool disposing)
