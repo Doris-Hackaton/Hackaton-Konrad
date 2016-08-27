@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -13,7 +14,9 @@ namespace Kima.Controllers
         // GET: Enfermedads
         public ActionResult Index()
         {
-            return View(db.Enfermedads.ToList());
+            int id = Int32.Parse(Session["idLoggead"].ToString());
+            List<Enfermedad> enfermedadesLista = db.Enfermedads.Where(e => e.Usuario.id == id).ToList();
+            return View(enfermedadesLista);
         }
 
         // GET: Enfermedads/Details/5
