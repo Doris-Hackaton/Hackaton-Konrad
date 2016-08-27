@@ -52,7 +52,7 @@ namespace Kima.Controllers
             {
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("~");
             }
 
             return View(usuario);
