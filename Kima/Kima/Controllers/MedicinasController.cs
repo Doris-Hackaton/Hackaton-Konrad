@@ -47,6 +47,8 @@ namespace Kima.Controllers
         {
             if (ModelState.IsValid)
             {
+                Usuario u = db.Usuarios.Find(Session["idLoggead"]);
+                medicinas.Usuario = u;
                 db.Medicinas.Add(medicinas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
