@@ -1,66 +1,69 @@
 ﻿@model Kima.Usuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Perfil";
 }
 
-<h2>Details</h2>
+
+<legend style="margin-top:45px"><h2>Mi perfil</h2></legend>
 
 <div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.cedula)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cedula)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cedula)
-        </dd>
-        
+            <dd>
+                @Html.DisplayFor(model => model.cedula)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.edad)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.edad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.edad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.domicilio)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.edad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.domicilio)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.domicilio)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.proced_quirurgico)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.domicilio)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.proced_quirurgico)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.proced_quirurgico)
+            </dt>
 
-        
+            <dd>
+                @Html.DisplayFor(model => model.proced_quirurgico)
+            </dd>
 
-    </dl>
+        </dl>
+
+
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.id })
-</p>
+
+<div id="Botones_aceptar_cancelar" class="col-md-offset-8 col-md-3">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id } , new { @class = "btn btn-primary btn-lg btn-block" })
+</div>
