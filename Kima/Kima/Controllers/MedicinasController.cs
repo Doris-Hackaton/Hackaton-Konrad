@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Kima;
 
 namespace Kima.Controllers
 {
@@ -38,6 +33,8 @@ namespace Kima.Controllers
         // GET: Medicinas/Create
         public ActionResult Create()
         {
+            EnfermedadsController enfermedadsController = new EnfermedadsController();
+            ViewBag.enfermedades = enfermedadsController.getAllEnfermedades();
             return View();
         }
 
@@ -61,6 +58,8 @@ namespace Kima.Controllers
         // GET: Medicinas/Edit/5
         public ActionResult Edit(int? id)
         {
+            EnfermedadsController enfermedadsController = new EnfermedadsController();
+            ViewBag.enfermedades = enfermedadsController.getAllEnfermedades();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

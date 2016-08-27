@@ -126,9 +126,15 @@ namespace Kima.Controllers
             return enfermedad;
         }
 
-        public List<Enfermedad> getAllEnfermedades()
+        public List<string> getAllEnfermedades()
         {
-            return db.Enfermedads.ToList();
+            List<Enfermedad> enfermedades = db.Enfermedads.ToList();
+            List<string> result = new List<string>();
+            foreach (Enfermedad enfermedad in enfermedades)
+            {
+                result.Add(enfermedad.nombre);
+            }
+            return result;
         }
     }
 }
