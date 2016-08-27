@@ -62,13 +62,13 @@ namespace Kima.Controllers
 
                if( correo != usuarioConsultado.email)
                {
-                    //correo incorrecto, mostrar mensaje
-               }
+                    ModelState.AddModelError("errorCorreo", "El correo ingresado es incorrecto.");
+                }
                else 
                {
                     if( password != usuarioConsultado.password)
                     {
-                        //contraseña incorrecta, mostrar mensaje
+                        ModelState.AddModelError("errorPassword", "La contraseña ingresada es incorrecta.");
                     }
                     else
                     {
