@@ -36,7 +36,7 @@ namespace Kima.Controllers
         }
 
         // GET: Usuarios/Create
-        public ActionResult Create()
+        public ActionResult Login()
         {
             return View();
         }

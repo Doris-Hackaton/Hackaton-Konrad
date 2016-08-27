@@ -11,7 +11,8 @@ namespace Kima
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,12 +24,19 @@ namespace Kima
         }
     
         public int id { get; set; }
+        [Display(Name = "Correo")]
         public string email { get; set; }
+        [Display(Name = "Contraseña")]
         public string password { get; set; }
+        [Display(Name = "Nombre")]
         public string nombre { get; set; }
+        [Display(Name = "Edad")]
         public int edad { get; set; }
+        [Display(Name = "Domicilio")]
         public string domicilio { get; set; }
+        [Display(Name = "Último procedimiento quirúrgico")]
         public string proced_quirurgico { get; set; }
+        [Display(Name = "Cédula")]
         public string cedula { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

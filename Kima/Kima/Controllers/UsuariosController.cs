@@ -84,7 +84,7 @@ namespace Kima.Controllers
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction(Url.Content("~/Home/Index"));
             }
             return View(usuario);
         }

@@ -213,12 +213,45 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asset\bootstrap.min.css" />
+    <Content Include="asset\bootstrap.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\sky-blue.css" />
+    <Content Include="css\slicknav.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\contact.js" />
+    <Content Include="js\count-to.js" />
+    <Content Include="js\jquery-2.1.4.min.js" />
+    <Content Include="js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="js\jquery.appear.js" />
+    <Content Include="js\jquery.easypiechart.js" />
+    <Content Include="js\jquery.easypiechart.min.js" />
+    <Content Include="js\jquery.fitvids.js" />
+    <Content Include="js\jquery.isotope.js" />
+    <Content Include="js\jquery.isotope.min.js" />
+    <Content Include="js\jquery.lettering.js" />
+    <Content Include="js\jquery.migrate.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.nicescroll.min.js" />
+    <Content Include="js\jquery.parallax.js" />
+    <Content Include="js\jquery.slicknav.js" />
+    <Content Include="js\jquery.textillate.js" />
+    <Content Include="js\mediaelement-and-player.js" />
+    <Content Include="js\modernizrr.js" />
+    <Content Include="js\nivo-lightbox.js" />
+    <Content Include="js\nivo-lightbox.min.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\script.js" />
     <Content Include="KimaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>KimaModel.Context.cs</LastGenOutput>
@@ -244,6 +277,12 @@
     <Content Include="KimaModel.edmx.diagram">
       <DependentUpon>KimaModel.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
