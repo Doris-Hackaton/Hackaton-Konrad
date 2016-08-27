@@ -1,31 +1,28 @@
 ﻿@model Kima.Medicinas
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Medicamento";
 }
 
-<h2>Create</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Medicinas</h4>
-        <hr />
+
+<div class="form-horizontal">
+    <legend style="margin-top:45px"><h2>Nuevo medicamento</h2></legend>
+
+    <div class="well">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.detalles, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.detalles, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.detalles, "", new { @class = "text-danger" })
             </div>
@@ -33,30 +30,26 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.dosis, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.dosis, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.dosis, "", new { @class = "text-danger" })
             </div>
-        </div>
 
-        <div class="form-group">
             @Html.LabelFor(model => model.frecuencia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.frecuencia, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.frecuencia, "", new { @class = "text-danger" })
             </div>
         </div>
-        
-        <div class="form-group">
-            @Html.Label("Enfermedad", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Padecimiento", new SelectList(ViewBag.Enfermedades), new { @class = "form-control" })
-            </div>
-        </div>
 
         <div class="form-group">
+            @Html.Label("Enfermedad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("Padecimiento", new SelectList(ViewBag.Enfermedades), new { @class = "form-control" })
+            </div>
+
             @Html.LabelFor(model => model.tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.DropDownListFor(model => model.tipo, new SelectList(new List<string> { "Pastilla", "Cápsula", "Inyectable", "Supositorio", "Inhalable", "Otro" }),
                "Seleccione uno", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
@@ -72,11 +65,13 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div id="Botones_aceptar_cancelar" class="col-md-offset-8 col-md-12">
+                <input type="submit" value="Aceptar" class="btn btn-primary btn-lg" /> | @Html.ActionLink("Cancelar", "Index")
             </div>
         </div>
+
     </div>
+</div>
 }
 
 <div>

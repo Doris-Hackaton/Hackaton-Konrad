@@ -1,63 +1,66 @@
 ﻿@model IEnumerable<Kima.Medicinas>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Medicamento";
 }
 
-<h2>Index</h2>
+<legend style="margin-top:45px"><h2>Medicamento</h2></legend>
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.detalles)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dosis)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.frecuencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.info_compra)
-        </th>
-        <th></th>
-    </tr>
+<div class="well">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detalles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.frecuencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.info_compra)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.detalles)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dosis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.frecuencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.info_compra)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.detalles)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dosis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.frecuencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.info_compra)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+                </td>
+            </tr>
 }
 
-</table>
+    </table>
+</div>
