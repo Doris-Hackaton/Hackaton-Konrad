@@ -108,9 +108,9 @@ namespace Kima.Controllers
         // POST: Medicinas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string nombre)
         {
-            Medicinas medicinas = db.Medicinas.Find(id);
+            Medicinas medicinas = db.Medicinas.SingleOrDefault(medicina => medicina.nombre == nombre);
             db.Medicinas.Remove(medicinas);
             db.SaveChanges();
             return RedirectToAction("Index");
