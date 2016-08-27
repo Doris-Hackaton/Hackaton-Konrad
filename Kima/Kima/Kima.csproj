@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Controllers\EventoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedicinasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Enfermedad.cs">
@@ -205,6 +206,7 @@
       <DependentUpon>KimaModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\EnfermedadsController.cs" />
+    <Compile Include="Models\Enfermedad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs">
       <DependentUpon>KimaModel1.tt</DependentUpon>
@@ -291,7 +293,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

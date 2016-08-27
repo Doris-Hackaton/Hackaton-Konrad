@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Kima
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Enfermedad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +22,17 @@ namespace Kima
             this.Medicinas = new HashSet<Medicinas>();
             this.Eventoes = new HashSet<Evento>();
         }
-    
+
         public int Id { get; set; }
+        [Display(Name = "Nombre completo")]
         public string nombre { get; set; }
+        [Display(Name = "Fecha de diágnostico")]
         public Nullable<System.DateTime> fecha_diagnostico { get; set; }
+        [Display(Name = "Fecha del último evento de la enfermedad")]
         public Nullable<System.DateTime> ultimo_evento { get; set; }
+        [Display(Name = "Tipo de la enfermedad (Crónico o no crónico)")]
         public string tipo { get; set; }
-    
+
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Medicinas> Medicinas { get; set; }
