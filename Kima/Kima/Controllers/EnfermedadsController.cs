@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -117,6 +118,17 @@ namespace Kima.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public Enfermedad getEnfermedadByName(string name)
+        {
+            Enfermedad enfermedad = db.Enfermedads.SingleOrDefault(e => e.nombre == name);
+            return enfermedad;
+        }
+
+        public List<Enfermedad> getAllEnfermedades()
+        {
+            return db.Enfermedads.ToList();
         }
     }
 }
