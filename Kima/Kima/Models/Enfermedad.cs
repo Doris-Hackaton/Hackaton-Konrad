@@ -12,17 +12,9 @@ using System.ComponentModel.DataAnnotations;
 namespace Kima.Models
 {
     using System;
-    using System.Collections.Generic;
 
     public class Enfermedad
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Enfermedad()
-        {
-            this.Medicinas = new HashSet<Medicinas>();
-            this.Eventoes = new HashSet<Evento>();
-        }
-
         public int Id { get; set; }
         [Required]
         [Display(Name = "Nombre completo")]
@@ -33,11 +25,5 @@ namespace Kima.Models
         public Nullable<System.DateTime> ultimo_evento { get; set; }
         [Display(Name = "Tipo de la enfermedad (Crónico o no crónico)")]
         public string tipo { get; set; }
-
-        public virtual Usuario Usuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medicinas> Medicinas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Evento> Eventoes { get; set; }
     }
 }
