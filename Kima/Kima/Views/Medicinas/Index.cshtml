@@ -29,6 +29,12 @@
         <th>
             @Html.DisplayNameFor(model => model.info_compra)
         </th>
+        <th>
+            @Html.DisplayName("Eliminar")
+        </th>
+        <th>
+            @Html.DisplayName("Editar")
+        </th>
         <th></th>
     </tr>
 
@@ -53,9 +59,10 @@
             @Html.DisplayFor(modelItem => item.info_compra)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <a href='@Url.Action("DeleteConfirmed", "Medicinas", new {nombre = item.nombre })' class="btn btn-primary"> Eliminar </a> 
+        </td>
+        <td>
+            <button type="button" name="devolver" class="btn btn-primary">Editar</button>
         </td>
     </tr>
 }
