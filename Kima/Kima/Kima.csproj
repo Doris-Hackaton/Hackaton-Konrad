@@ -173,7 +173,9 @@
     <Compile Include="CentroSalud.cs">
       <DependentUpon>KimaModel1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\EventoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicinasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Enfermedad.cs">
       <DependentUpon>KimaModel1.tt</DependentUpon>
@@ -276,6 +278,16 @@
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Eventoes\Create.cshtml" />
+    <Content Include="Views\Eventoes\Delete.cshtml" />
+    <Content Include="Views\Eventoes\Details.cshtml" />
+    <Content Include="Views\Eventoes\Edit.cshtml" />
+    <Content Include="Views\Eventoes\Index.cshtml" />
+    <Content Include="Views\Medicinas\Create.cshtml" />
+    <Content Include="Views\Medicinas\Delete.cshtml" />
+    <Content Include="Views\Medicinas\Details.cshtml" />
+    <Content Include="Views\Medicinas\Edit.cshtml" />
+    <Content Include="Views\Medicinas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
