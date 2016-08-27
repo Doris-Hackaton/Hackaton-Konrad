@@ -46,7 +46,9 @@ namespace Kima.Controllers
         {
             if (ModelState.IsValid)
             {
+                var id = Session["idLoggead"];
                 db.Enfermedads.Add(enfermedad);
+                enfermedad.Usuario = db.Usuarios.SingleOrDefault(u => u.id.ToString() == id.ToString());
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
