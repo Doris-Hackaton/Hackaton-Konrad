@@ -128,6 +128,5 @@ C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\bin\es\System.Web.R
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\bin\es\System.Web.WebPages.resources.dll
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\obj\Debug\Kima.csprojResolveAssemblyReference.cache
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\obj\Debug\Kima.dll
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\obj\Debug\Kima.pdb

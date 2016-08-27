@@ -11,7 +11,8 @@ namespace Kima
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Medicinas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,11 +23,17 @@ namespace Kima
         }
     
         public int Id { get; set; }
+        [Display(Name = "Nombre Medicina")]
         public string nombre { get; set; }
+        [Display(Name = "Detalles")]
         public string detalles { get; set; }
+        [Display(Name = "Dosis cantidad")]
         public string dosis { get; set; }
+        [Display(Name = "Frecuencia Dosis")]
         public string frecuencia { get; set; }
+        [Display(Name = "Tipo")]
         public string tipo { get; set; }
+        [Display(Name = "Información precio/lugar")]
         public string info_compra { get; set; }
     
         public virtual Usuario Usuario { get; set; }
