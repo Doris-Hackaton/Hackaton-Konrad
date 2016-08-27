@@ -21,15 +21,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Kima", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Kíma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li id="A1">@Html.ActionLink("Perfil", "Details", "Usuarios", new { id = Session["idLoggead"] }, null)</li>
-                        <li id="A2">@Html.ActionLink("Enfermedades", "Create", "Enfermedads")</li>
-                        <li id="A3">@Html.ActionLink("Medicamentos", "Create", "Medicinas")</li>
-                        <li id="A4">@Html.ActionLink("Eventos", "Create", "Eventoes")</li>
+                        
+                        @{
+                            if(Session["idLoggead"] !=null)
+                            {
+                                 <li id="A1">@Html.ActionLink("Perfil", "Details", "Usuarios", new {id = Session["idLoggead"]}, null)</li>
+                                 <li id="A2">@Html.ActionLink("Enfermedades", "Index", "Enfermedads")</li>
+                                 <li id="A3">@Html.ActionLink("Medicamentos", "Index", "Medicinas")</li>
+                                 <li id="A4">@Html.ActionLink("Eventos", "Index", "Eventoes")</li>
+                            }
+                            else
+                            {
+                                <li id="A2">@Html.ActionLink("Ingresar/Registrarse", "Login", "Login")</li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
