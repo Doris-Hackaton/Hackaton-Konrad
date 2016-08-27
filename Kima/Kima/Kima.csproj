@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Controllers\EventoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedicinasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Enfermedad.cs">
@@ -211,6 +212,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asset\bootstrap.min.css" />
+    <Content Include="asset\bootstrap.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
