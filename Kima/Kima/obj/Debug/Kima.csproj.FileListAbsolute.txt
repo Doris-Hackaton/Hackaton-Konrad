@@ -130,3 +130,4 @@ C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\bin\es\System.Web.W
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\obj\Debug\Kima.dll
 C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\obj\Debug\Kima.pdb
+C:\Users\Carolina\Documents\GitHub\Hackaton-Konrad\Kima\Kima\obj\Debug\Kima.csprojResolveAssemblyReference.cache
