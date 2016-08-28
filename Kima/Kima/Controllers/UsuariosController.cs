@@ -73,7 +73,7 @@ namespace Kima.Controllers
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction(Url.Content("~"));
+                return Redirect("~");
             }
             return View(usuario);
         }
