@@ -330,6 +330,7 @@
     <Content Include="Views\Medicinas\Edit.cshtml" />
     <Content Include="Views\Medicinas\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
