@@ -1,128 +1,68 @@
 ﻿@model Kima.Evento
 
 @{
-    ViewBag.Title = "Crear Evento";
+    ViewBag.Title = "Eventos";
 }
 
-<h2>Create</h2>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("[id$=A4]").addClass("active");
+    });
+</script>
 
-<script>
- $.datepicker.regional['es'] = {
- closeText: 'Cerrar',
- prevText: '<Ant',
- nextText: 'Sig>',
- currentText: 'Hoy',
- monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
- monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
- dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
- dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
- dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
- weekHeader: 'Sm',
- dateFormat: 'mm/dd/yy',
- firstDay: 1,
- isRTL: false,
- showMonthAfterYear: false,
- yearSuffix: ''
- };
- $.datepicker.setDefaults($.datepicker.regional['es']);
-</script>
-<script>
-  $( function() {
-      $("#fecha").datepicker();
-  } );
-</script>
+<legend style="margin-top:45px"><h2>Nuevo evento</h2></legend>
+
+
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    listItems.Add(new SelectListItem
-    {
-        Text = "Cita Médica",
-        Value = "1",
-        Selected = true
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Recoger Medicamento",
-        Value = "2"
-    });
 
-    ViewBag.listItems = listItems;
+<div class="well">
+
     <div class="form-horizontal">
-        <h4>Evento</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label class="control-label col-md-2">Tipo Evento</label>
-            <div class="col-md-10">
-                @Html.DropDownList("dropdownCategoria", listItems, new { @class = "form-control" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
             @Html.LabelFor(model => model.doctor, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.doctor, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.doctor, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label("Centro de Salud", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CentroSalud", new SelectList(ViewBag.centros), new { @class = "form-control" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Medicinas por recoger", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Medicina", new SelectList(ViewBag.medicinas), new { @class = "form-control" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-            @Html.Label("Enfermedad", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Padecimiento", new SelectList(ViewBag.Enfermedades), new { @class = "form-control" })
-            </div>
-        </div>
-        
-
-        <div class="form-group">
             @Html.LabelFor(model => model.anotaciones, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.anotaciones, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.anotaciones, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        
-
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Crear Evento" class="btn btn-default" />
+            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
             </div>
         </div>
+
+
+        <div class="form-group">
+            <div id="Botones_aceptar_cancelar" class="col-md-offset-8 col-md-12">
+                <input type="submit" value="Aceptar" class="btn btn-primary btn-lg" /> | @Html.ActionLink("Cancelar", "Index")
+            </div>
+        </div>
+
+
+
     </div>
-}
 
-<div>
-    @Html.ActionLink("Consultar Eventos", "Index")
 </div>
+    }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
