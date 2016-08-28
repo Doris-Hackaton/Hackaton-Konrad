@@ -38,6 +38,10 @@ namespace Kima.Controllers
         // GET: Eventoes/Create
         public ActionResult Create()
         {
+            EnfermedadsController enfermedadsController = new EnfermedadsController();
+            ViewBag.enfermedades = enfermedadsController.getAllEnfermedades();
+            ViewBag.medicinas = getAllMedicinas();
+            ViewBag.centros = getAllCentros();
             return View();
         }
 
@@ -46,10 +50,22 @@ namespace Kima.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,color,doctor,anotaciones,fecha")] Evento evento)
+        public ActionResult Create([Bind(Include = "Id,color,doctor,anotaciones,fecha")] Evento evento, String Padecimiento, String Medicina, String CentroSalud)
         {
             if (ModelState.IsValid)
             {
+                EnfermedadsController ec = new EnfermedadsController();
+                Enfermedad enf = ec.getEnfermedadByName(Padecimiento);
+                evento.Enfermedad = enf;
+
+                if (Medicina != "Ninguna") {
+                    Medicinas medicina = getMedicinaByName(Medicina);
+                    evento.Medicina = medicina;
+                }
+                if (CentroSalud != null) {
+                    CentroSalud cs = getCentroByName(CentroSalud);
+                    evento.CentroSalud = cs;
+                }
                 db.Eventoes.Add(evento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -57,6 +73,39 @@ namespace Kima.Controllers
 
             return View(evento);
         }
+
+        public Medicinas getMedicinaByName(string name)
+        {
+            Medicinas med = db.Medicinas.FirstOrDefault(e => e.nombre == name);
+            return med;
+        }
+        public List<string> getAllMedicinas()
+        {
+            List<Medicinas> medicinas = db.Medicinas.ToList();
+            List<string> result = new List<string>();
+            result.Add("Ninguna");
+            foreach (Medicinas med in medicinas)
+            {
+                result.Add(med.nombre);
+            }
+            return result;
+        }
+        public List<string> getAllCentros()
+        {
+            List<CentroSalud> centros = db.CentroSaluds.ToList();
+            List<string> result = new List<string>();
+            foreach (CentroSalud med in centros)
+            {
+                result.Add(med.nombre);
+            }
+            return result;
+        }
+        public CentroSalud getCentroByName(string name)
+        {
+            CentroSalud med = db.CentroSaluds.FirstOrDefault(e => e.nombre == name);
+            return med;
+        }
+
 
         // GET: Eventoes/Edit/5
         public ActionResult Edit(int? id)

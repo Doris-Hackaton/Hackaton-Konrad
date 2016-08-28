@@ -11,13 +11,18 @@ namespace Kima
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Evento
     {
         public int Id { get; set; }
+        [Display(Name = "Color Evento")]
         public string color { get; set; }
+        [Display(Name = "Nombre doctor")]
         public string doctor { get; set; }
+        [Display(Name = "Anotaciones")]
         public string anotaciones { get; set; }
+        [Display(Name = "Fecha Evento")]
         public Nullable<System.DateTime> fecha { get; set; }
     
         public virtual Usuario Usuario { get; set; }

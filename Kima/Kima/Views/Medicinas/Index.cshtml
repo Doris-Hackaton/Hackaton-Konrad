@@ -64,7 +64,7 @@
                     <a href='@Url.Action("Delete", "Medicinas", new {nombre = item.nombre })' class="btn btn-primary"> Eliminar </a> 
                 </td>
                 <td>
-                    
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id}, new { @class = "btn btn - primary"})
                 </td>
             </tr>
 }
