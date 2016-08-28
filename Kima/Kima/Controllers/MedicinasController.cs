@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -12,7 +14,12 @@ namespace Kima.Controllers
         // GET: Medicinas
         public ActionResult Index()
         {
-            return View(db.Medicinas.ToList());
+            if (Session["idLoggead"] == null)
+                return View("~/Views/Login/Login.cshtml");
+            int id = Int32.Parse(Session["idLoggead"].ToString());
+
+            List<Medicinas> medicinasLista = db.Medicinas.Where(e => e.Usuario.id == id).ToList();
+            return View(medicinasLista);
         }
 
         // GET: Medicinas/Details/5
