@@ -22,6 +22,7 @@ namespace Kima
         public string doctor { get; set; }
         [Display(Name = "Anotaciones")]
         public string anotaciones { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Fecha Evento")]
         public Nullable<System.DateTime> fecha { get; set; }
     
