@@ -40,6 +40,8 @@ namespace Kima.Controllers
         // GET: Medicinas/Create
         public ActionResult Create()
         {
+            if (Session["idLoggead"] == null)
+                return View("~/Views/Login/Login.cshtml");
             EnfermedadsController enfermedadsController = new EnfermedadsController();
             ViewBag.enfermedades = enfermedadsController.getAllEnfermedades();
             return View();
@@ -52,6 +54,8 @@ namespace Kima.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,nombre,detalles,dosis,frecuencia,tipo,info_compra")] Medicinas medicinas)
         {
+            if (Session["idLoggead"] == null)
+                return View("~/Views/Login/Login.cshtml");
             if (ModelState.IsValid)
             {
                 Usuario u = db.Usuarios.Find(Session["idLoggead"]);
@@ -67,6 +71,8 @@ namespace Kima.Controllers
         // GET: Medicinas/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["idLoggead"] == null)
+                return View("~/Views/Login/Login.cshtml");
             EnfermedadsController enfermedadsController = new EnfermedadsController();
             ViewBag.enfermedades = enfermedadsController.getAllEnfermedades();
             if (id == null)
@@ -88,6 +94,8 @@ namespace Kima.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,nombre,detalles,dosis,frecuencia,tipo,info_compra")] Medicinas medicinas)
         {
+            if (Session["idLoggead"] == null)
+                return View("~/Views/Login/Login.cshtml");
             if (ModelState.IsValid)
             {
                 db.Entry(medicinas).State = EntityState.Modified;
@@ -102,6 +110,8 @@ namespace Kima.Controllers
         [ActionName("Delete")]
         public ActionResult DeleteConfirmed(string nombre)
         {
+            if (Session["idLoggead"] == null)
+                return View("~/Views/Login/Login.cshtml");
             Medicinas medicinas = db.Medicinas.SingleOrDefault(medicina => medicina.nombre == nombre);
             db.Medicinas.Remove(medicinas);
             db.SaveChanges();
