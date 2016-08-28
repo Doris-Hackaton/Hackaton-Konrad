@@ -54,11 +54,13 @@ namespace Kima.Controllers
         {
             if (ModelState.IsValid)
             {
-                EnfermedadsController ec = new EnfermedadsController();
-                Enfermedad enf = ec.getEnfermedadByName(Padecimiento);
-                evento.Enfermedad = enf;
 
-                if (Medicina != "Ninguna") {
+                Enfermedad enf = getEnfermedadByName(Padecimiento);
+                evento.Enfermedad = enf;
+                Usuario u = db.Usuarios.Find(Session["idLoggead"]);
+                evento.Usuario = u;
+
+                if (Medicina != null) {
                     Medicinas medicina = getMedicinaByName(Medicina);
                     evento.Medicina = medicina;
                 }
@@ -74,23 +76,27 @@ namespace Kima.Controllers
             return View(evento);
         }
 
-        public Medicinas getMedicinaByName(string name)
+        private Enfermedad getEnfermedadByName(string name)
+        {
+            Enfermedad enfermedad = db.Enfermedads.SingleOrDefault(e => e.nombre == name);
+            return enfermedad;
+        }
+        private Medicinas getMedicinaByName(string name)
         {
             Medicinas med = db.Medicinas.FirstOrDefault(e => e.nombre == name);
             return med;
         }
-        public List<string> getAllMedicinas()
+        private List<string> getAllMedicinas()
         {
             List<Medicinas> medicinas = db.Medicinas.ToList();
             List<string> result = new List<string>();
-            result.Add("Ninguna");
             foreach (Medicinas med in medicinas)
             {
                 result.Add(med.nombre);
             }
             return result;
         }
-        public List<string> getAllCentros()
+        private List<string> getAllCentros()
         {
             List<CentroSalud> centros = db.CentroSaluds.ToList();
             List<string> result = new List<string>();
@@ -100,7 +106,7 @@ namespace Kima.Controllers
             }
             return result;
         }
-        public CentroSalud getCentroByName(string name)
+        private CentroSalud getCentroByName(string name)
         {
             CentroSalud med = db.CentroSaluds.FirstOrDefault(e => e.nombre == name);
             return med;
