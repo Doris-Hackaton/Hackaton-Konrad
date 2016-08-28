@@ -1,7 +1,4 @@
-﻿h1, h2, h3, h4, h5, h6 {
-    color: #628f3e;
-}
-
+﻿
 body {
     padding-top: 140px;
     padding-bottom: 30px;
@@ -75,7 +72,7 @@ html, body {
 }
 
 .cuerpo-footer {
-    background-color: #F4F5F0;
+    background-color: #7586a3;
     padding: 10px;
     margin: 0px;
     width: 100%;

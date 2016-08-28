@@ -4,6 +4,12 @@
     ViewBag.Title = "Medicamento";
 }
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("[id$=A3]").addClass("active");
+    });
+</script>
+
 <legend style="margin-top:45px"><h2>Medicamento</h2></legend>
 
 
@@ -58,7 +64,7 @@
                     <a href='@Url.Action("Delete", "Medicinas", new {nombre = item.nombre })' class="btn btn-primary"> Eliminar </a> 
                 </td>
                 <td>
-                    
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id}, new { @class = "btn btn - primary"})
                 </td>
             </tr>
 }
