@@ -10,46 +10,51 @@
     });
 </script>
 
-<h2>Detalles</h2>
+<legend style="margin-top:45px"><h2>Detalles</h2></legend>
 
 <div>
-   <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha_diagnostico)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha_diagnostico)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fecha_diagnostico)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.fecha_diagnostico)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ultimo_evento)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ultimo_evento)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ultimo_evento)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ultimo_evento)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.tipo)
+            </dd>
 
-    </dl>
+        </dl>
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Cancelar", "Index")
-</p>
+
+<div class="form-group">
+    <div id="Botones_aceptar_cancelar" class="col-md-offset-8 col-md-12">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id },new { @class = "btn btn-primary btn-lg" } ) |
+        @Html.ActionLink("Cancelar", "Index")
+    </div>
+</div>
