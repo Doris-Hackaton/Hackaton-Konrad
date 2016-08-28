@@ -18,6 +18,15 @@ namespace Kima.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Logout(Usuario usuario)
+        {
+
+            Session["idLoggead"] = null;
+
+            return View("~/Views/Home/Index.cshtml");
+        }
+
         // GET: Usuarios/Create
         public ActionResult Login()
         {
